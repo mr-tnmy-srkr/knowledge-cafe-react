@@ -1,26 +1,27 @@
-
-import './App.css'
-import Header from './components/Header/Header'
-import Blogs from './components/Blogs/Blogs'
-import Bookmarks from './components/Bookmarks/Bookmarks'
-import { useState } from 'react'
+import "./App.css";
+import Header from "./components/Header/Header";
+import Blogs from "./components/Blogs/Blogs";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
+import { useState } from "react";
 
 function App() {
-const [bookmarks,setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
 
- const handleAddToBookmarks = blog =>{
-  console.log(blog);
-}
- 
+  const handleAddToBookmarks = (blog) => {
+    // console.log(blog);
+    const newBookmarks = [...bookmarks, blog];
+    setBookmarks(newBookmarks);
+  };
+
   return (
-    <div className='container mx-auto w-[98%]'>
+    <div className="container mx-auto w-[98%]">
       <Header></Header>
-     <div className='md: flex my-8'>
-     <Blogs handleAddToBookmarks={handleAddToBookmarks}></Blogs>
-     <Bookmarks></Bookmarks>
-     </div>
+      <div className="md: flex my-8">
+        <Blogs handleAddToBookmarks={handleAddToBookmarks}></Blogs>
+        <Bookmarks bookmarks={bookmarks}></Bookmarks>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
