@@ -1,28 +1,33 @@
-import { useEffect, useState } from 'react';
-import Blog from '../Blog/Blog';
+import { useEffect, useState } from "react";
+import Blog from "../Blog/Blog";
 import PropTypes from "prop-types"; // ES6
 
-const Blogs = ({handleAddToBookmarks}) => {
-    const [blogs, setBlogs] = useState([])
-   
-   useEffect(()=>{
-        fetch('blogs.json')
-        .then(res=>res.json())
-        .then(data=>setBlogs(data))
-    },[]) 
+const Blogs = ({ handleAddToBookmarks, handleMarkAsRead }) => {
+  const [blogs, setBlogs] = useState([]);
+//   console.log(blogs);
+  useEffect(() => {
+    fetch("blogs.json")
+      .then((res) => res.json())
+      .then((data) => setBlogs(data));
+  }, []);
 
-    return (
-        <div className='w-2/3 pr-8'>
-      
-        {
-            blogs.map(blog => <Blog key={blog.id} blog={blog} handleAddToBookmarks={handleAddToBookmarks}></Blog>)
-        }
-        </div>
-    );
+  return (
+    <div className="w-2/3 pr-8">
+      {blogs.map((blog) => (
+        <Blog
+          key={blog.id}
+          blog={blog}
+          handleAddToBookmarks={handleAddToBookmarks}
+          handleMarkAsRead={handleMarkAsRead}
+        />
+      ))}
+    </div>
+  );
 };
 
 Blogs.propTypes = {
-    handleAddToBookmarks:PropTypes.func
-}
+  handleAddToBookmarks: PropTypes.func,
+  handleMarkAsRead: PropTypes.func,
+};
 
 export default Blogs;
