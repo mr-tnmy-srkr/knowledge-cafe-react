@@ -35,7 +35,7 @@ const Blog = ({blog, handleAddToBookmarks, handleMarkAsRead }) => {
           <span>
             {reading_time} min read{" "}
             <button
-              onClick={() => handleAddToBookmarks(blog)}
+              onClick={() => handleAddToBookmarks(blog,id)}
               className="ml-2 text-red-600"
             >
               <BsFillBookmarkStarFill />
