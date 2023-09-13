@@ -8,8 +8,10 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const [readingTime, setReadingTime] = useState(0);
 
+
+
+// add to the bookmarks
   const handleAddToBookmarks = (blog,id) => {
-    // console.log(blog);
     const isExist = bookmarks.find(b=>b.id===id);
     if(isExist){
       alert("Already in Bookmarks");
@@ -19,12 +21,18 @@ function App() {
     }
   };
 
+
+
   // add the blog at bookmarks
   const handleMarkAsRead = (id, time) => {
-    setReadingTime(readingTime + time);
-
-    // remove the blog from boomarks
-    // console.log("remove Bookmark" ,id);
+    // setReadingTime(readingTime + time);
+    // ....................................................
+    const isExist = bookmarks.find(b=>b.id===id);
+    if(isExist){
+      setReadingTime(readingTime + time)
+    }
+    // ....................................................
+    // remove the blog from bookmarks
     const remainingBookmarks = bookmarks.filter(
       (bookmark) => bookmark.id !== id
     );
