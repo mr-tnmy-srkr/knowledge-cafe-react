@@ -10,6 +10,6 @@ Currently, two official plugins are available:
 
 live link
 
-knowledge-cafe-tanmoy.surge.sh
+https://knowledge-cafe-tanmoy.surge.sh
 
 https://knowledge-cafe-gamma.vercel.app/
