@@ -14,10 +14,18 @@ function App() {
     setBookmarks(newBookmarks);
   };
 
-  // console.log(readingTime);
-  const handleMarkAsRead = (time) => {
+  // add the blog at bookmarks
+  const handleMarkAsRead = (id, time) => {
     setReadingTime(readingTime + time);
+
+    // remove the blog from boomarks
+    // console.log("remove Bookmark" ,id);
+    const remainingBookmarks = bookmarks.filter(
+      (bookmark) => bookmark.id !== id
+    );
+    setBookmarks(remainingBookmarks);
   };
+
   return (
     <div className="container mx-auto w-[98%]">
       <Header></Header>
